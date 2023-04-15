@@ -1,10 +1,10 @@
-import './Home.css';
+import { HomeStyled } from './Home.styles';
 
 function Home() {
   return (
-    <div className="home">
+    <HomeStyled>
       <p>Hello World</p>
-    </div>
+    </HomeStyled>
   );
 }
 
