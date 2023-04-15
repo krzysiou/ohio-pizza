@@ -8,4 +8,3 @@ After cloning the repo run `npm i`. To run the project type `npm run dev`.
 
 - `npm run build` - builds the project into `./build` directory
 - `npm run dev` - starts the server in developer mode
-- `npm run test` - run tests
