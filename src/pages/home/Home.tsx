@@ -1,11 +1,12 @@
 import { HomeStyled } from './Home.styles';
 
-function Home() {
+const Home: React.FC = () => {
   return (
     <HomeStyled>
-      <p>Hello World</p>
+      <p>this is home page</p>
     </HomeStyled>
   );
-}
+};
 
-export default Home;
+export { Home };
+
