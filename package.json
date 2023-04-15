@@ -22,7 +22,8 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.3",
     "react-router-dom": "^6.10.0"
   }
 }
