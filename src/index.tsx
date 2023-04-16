@@ -1,8 +1,8 @@
 import { Global, css } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Router } from './Router';
-import { Navbar } from './common/navbar/Navbar';
+import { Router } from './components/Router';
+import { Navbar } from './components/common/navbar/Navbar';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
