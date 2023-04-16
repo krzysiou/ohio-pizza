@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-const MenuStyled = styled.div`
-    background-color: #3f3;
+const NotFoundStyled = styled.div`
+    background-color: #a33;
     color: #3f3f3f;
 
     > p {
@@ -9,4 +9,4 @@ const MenuStyled = styled.div`
     }
 `;
 
-export { MenuStyled };
+export { NotFoundStyled };
