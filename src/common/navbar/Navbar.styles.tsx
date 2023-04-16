@@ -15,23 +15,21 @@ const NavbarStyled = styled.div`
         height: 60px;
     }
 
-    > div {
-        > a {
-            position: relative;
-            color: #ff5b0f;
-            text-decoration: none;
-            padding: 0 15px;
+    a {
+        position: relative;
+        color: #ff5b0f;
+        text-decoration: none;
+        padding: 0 15px;
 
-            :not(:last-of-type)::after {
-                content: '';
-                position: absolute;
-                background-color: #ff8045;
-                width: 1px;
-                height: 18px;
-                top: 0;
-                right: 0;
-                transform: translateY(20%);
-            }
+        :not(:last-of-type)::after {
+            content: '';
+            position: absolute;
+            background-color: #ff8045;
+            width: 1px;
+            height: 18px;
+            top: 0;
+            right: 0;
+            transform: translateY(20%);
         }
     }
 
