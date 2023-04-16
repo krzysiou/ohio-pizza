@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from './pages/home/Home';
-import { Menu } from './pages/menu/Menu';
+import { Home } from './pages/Home/Home';
+import { NotFound } from './pages/NotFound/NotFound';
 
 const Router: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/menu" element={<Menu/>} />  
+        <Route path='*' element={<NotFound />}/>
       </Routes>
     </BrowserRouter>
   );

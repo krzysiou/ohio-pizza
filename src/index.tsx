@@ -2,6 +2,7 @@ import { Global, css } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Router } from './Router';
+import { Navbar } from './common/navbar/Navbar';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,6 +20,7 @@ const globalStyles = css`
 root.render(
   <React.StrictMode>
     <Global styles={globalStyles}/>
+    <Navbar />
     <Router />
   </React.StrictMode>
 );
