@@ -1,9 +1,14 @@
+import ohio from '../../../assets/ohio-state.png';
 import { HomeStyled } from './Home.styles';
 
 const Home: React.FC = () => {
   return (
     <HomeStyled>
-      <p>this is home page</p>
+      <div>
+        <img src={ohio} alt="ohio border" />
+        <p>OHIO</p>
+        <p>オハイオピザへようこそ</p>
+      </div>
     </HomeStyled>
   );
 };
