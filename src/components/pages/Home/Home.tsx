@@ -1,4 +1,4 @@
-import ohio from '../../../assets/ohio-state.png';
+import ohio from 'assets/ohio-state.png';
 import { HomeStyled } from './Home.styles';
 
 const Home: React.FC = () => {
@@ -14,4 +14,3 @@ const Home: React.FC = () => {
 };
 
 export { Home };
-
