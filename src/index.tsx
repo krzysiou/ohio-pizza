@@ -1,8 +1,8 @@
-import { Global, css } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Router } from './components/Router';
-import { Navbar } from './components/common/navbar/Navbar';
+import { css, Global } from '@emotion/react';
+
+import { Navbar, Router } from './components';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +11,9 @@ const root = ReactDOM.createRoot(
 const globalStyles = css`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -19,7 +21,7 @@ const globalStyles = css`
 
 root.render(
   <React.StrictMode>
-    <Global styles={globalStyles}/>
+    <Global styles={globalStyles} />
     <Navbar />
     <Router />
   </React.StrictMode>
