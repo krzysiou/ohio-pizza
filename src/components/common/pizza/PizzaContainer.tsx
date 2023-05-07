@@ -1,14 +1,10 @@
+import pizzaPlaceholder from 'assets/pizza-img-placeholder.png';
 import { Pizza } from 'types';
 import { PizzaContainerStyled } from './PizzaContainer.styles';
 
 const PizzaContainer: React.FC<{ pizza: Pizza }> = ({ pizza }) => {
   return (
-    <PizzaContainerStyled
-      imageUrl={
-        pizza.imageUrl ||
-        'https://img.freepik.com/free-photo/mixed-pizza-with-various-ingridients_140725-3790.jpg?w=2000'
-      }
-    >
+    <PizzaContainerStyled imageUrl={pizza.imageUrl || pizzaPlaceholder}>
       <div>
         <p>{pizza.name}</p>
         <div>
@@ -16,6 +12,7 @@ const PizzaContainer: React.FC<{ pizza: Pizza }> = ({ pizza }) => {
             <p key={ingredient}>{ingredient}</p>
           ))}
         </div>
+        <p>${pizza.price}</p>
       </div>
     </PizzaContainerStyled>
   );
