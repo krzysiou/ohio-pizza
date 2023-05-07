@@ -1,12 +1,6 @@
 import useFetch from 'hooks/useFetch';
 import React from 'react';
-
-type Pizza = {
-  name: string;
-  ingredients: string[];
-  price: number;
-  imageUrl?: string;
-};
+import { type Pizza } from 'types';
 
 const Menu: React.FC = () => {
   const { data: pizzas, loading } = useFetch<Pizza[]>(
