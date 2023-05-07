@@ -1,3 +1,4 @@
+import { PizzaContainer } from 'components/common';
 import useFetch from 'hooks/useFetch';
 import React from 'react';
 import { type Pizza } from 'types';
@@ -15,7 +16,9 @@ const Menu: React.FC = () => {
     <>
       <div>
         {pizzas &&
-          pizzas.map((pizza) => <div key={pizza.name}>{pizza.name}</div>)}
+          pizzas.map((pizza) => (
+            <PizzaContainer key={pizza.name} pizza={pizza} />
+          ))}
       </div>
     </>
   );
