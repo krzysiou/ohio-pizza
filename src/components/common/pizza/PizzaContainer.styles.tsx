@@ -14,16 +14,21 @@ const PizzaContainerStyled = styled.div<{ imageUrl: string }>(
       color: '#fff',
       padding: '20px',
     },
-    ' > div > p:first-of-type': {
+    '.pizza-name': {
       fontSize: '64px',
       fontWeight: 800,
       width: '100%',
       color: '#ff5b0f',
     },
-    ' > div > p:last-of-type': {
+    '.price': {
       fontSize: '86px',
       fontWeight: 800,
       width: '100%',
+    },
+    '.ingredient': {
+      fontSize: '24px',
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
     },
   })
 );
