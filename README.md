@@ -2,7 +2,7 @@
 
 ### Setup
 
-After cloning the repo run `npm i`. To run the project type `npm run dev`.
+After cloning the repo run `npm i`, to run the project type `npm run dev`.
 
 ### Commands:
 
