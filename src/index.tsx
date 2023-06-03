@@ -9,6 +9,9 @@ const root = ReactDOM.createRoot(
 );
 
 const globalStyles = css`
+  * {
+    box-sizing: border-box;
+  }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
