@@ -23,8 +23,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "prepare": "husky install"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
