@@ -4,15 +4,17 @@ import { PizzaContainerStyled } from './PizzaContainer.styles';
 
 const PizzaContainer: React.FC<{ pizza: Pizza }> = ({ pizza }) => {
   return (
-    <PizzaContainerStyled imageUrl={pizza.imageUrl || pizzaPlaceholder}>
+    <PizzaContainerStyled imageUrl={pizza.pic_url || pizzaPlaceholder}>
       <div>
-        <p>{pizza.name}</p>
+        <p className="pizza-name">{pizza.name}</p>
         <div>
           {pizza.ingredients.map((ingredient) => (
-            <p key={ingredient}>{ingredient}</p>
+            <p className="ingredient" key={ingredient}>
+              ✓ {ingredient}
+            </p>
           ))}
         </div>
-        <p>${pizza.price}</p>
+        <p className="price">${pizza.price}</p>
       </div>
     </PizzaContainerStyled>
   );
