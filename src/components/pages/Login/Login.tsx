@@ -22,6 +22,7 @@ const Login: React.FC = () => {
       if(data) {
         const { accessToken } = data;
         localStorage.setItem('accessToken', accessToken);
+        window.location.href = '/admin';
       } 
     } catch (error) {
       console.log(error);
