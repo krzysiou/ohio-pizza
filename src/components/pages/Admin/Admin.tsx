@@ -1,70 +1,13 @@
-import { useCallback } from 'react';
-import useFetch from 'hooks/useFetch';
-import { Pizza } from 'types';
 import { AdminStyled } from './Admin.styles';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { EditPizza } from './EditPizza';
+import { Reservations } from './Reservations';
+
+export type AdminView = 'edit' | 'reservations';
 
 const Admin: React.FC = () => {
   const [auth, setAuth] = useState<string>('');
-  const [ingredients, setIngredients] = useState<string[]>([]);
-  const [name, setName] = useState<string>('');
-  const [price, setPrice] = useState<number>(10);
-  const [image, setImage] = useState<string>('');
-  const { data: pizzas, loading } = useFetch<Pizza[]>(
-    'http://localhost:3001/pizza'
-  );
-
-  const handleSavePizza = useCallback(async () => {
-    if (name === '' || ingredients.length === 0 || price === 0) {
-      return;
-    }
-    console.log(name, price, ingredients, image);
-
-    const res = await axios.post(
-      'http://localhost:3001/admin/add-pizza',
-      {
-        name,
-        price,
-        ingredients,
-        image,
-      },
-      { headers: { Authorization: `Bearer ${auth}` } }
-    );
-    if (res.status === 200) {
-      window.location.reload();
-    }
-  }, [name, price, ingredients]);
-
-  const handleDelete = useCallback(
-    async (id: number) => {
-      const res = await axios.post(
-        'http://localhost:3001/admin/delete-pizza',
-        {
-          pizzaId: id,
-        },
-        { headers: { Authorization: `Bearer ${auth}` } }
-      );
-      if (res) {
-        window.location.reload();
-      }
-    },
-    [auth]
-  );
-
-  const handleChangeIngredient = useCallback(
-    (event: React.FormEvent<HTMLInputElement>, index: number) => {
-      const newIngredients = [...ingredients];
-      if (event.currentTarget.value === '') {
-        newIngredients.splice(index, 1);
-        setIngredients(newIngredients);
-        return;
-      }
-      newIngredients[index] = event.currentTarget.value;
-      setIngredients(newIngredients);
-    },
-    [ingredients]
-  );
+  const [view, setView] = useState<AdminView>('edit');
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
@@ -75,77 +18,20 @@ const Admin: React.FC = () => {
     setAuth(accessToken);
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const editButtonClick = () => setView('edit');
+  const reservationsButtonClick = () => setView('reservations');
+
+  const choosenComponent = view === 'edit' ? <EditPizza auth={auth}/> : <Reservations auth={auth}/>;
 
   return (
-    <AdminStyled>
-      <div className="pizza-container">
-        {pizzas &&
-          pizzas.map((pizza) => (
-            <div className="pizza-box" key={pizza.pizza_id}>
-              <span className="name">
-                {pizza.name}{' '}
-                <span
-                  className="delete-btn"
-                  onClick={() => handleDelete(pizza.pizza_id)}
-                >
-                  X
-                </span>
-              </span>
-              {pizza.ingredients.map((ingredient) => (
-                <span className="ingredient" key={ingredient}>
-                  {ingredient}
-                </span>
-              ))}
-              <span className="price">${pizza.price}</span>
-            </div>
-          ))}
+    <AdminStyled view={view}>
+      <div className='buttons'>
+        <button className='button button-edit' onClick={editButtonClick}>Edit Pizza</button>
+        <button className='button button-reservations' onClick={reservationsButtonClick}>Reservations</button>
       </div>
-
-      <form>
-        <input
-          type="text"
-          placeholder="Pizza Name"
-          className="name-input"
-          value={name}
-          onChange={(e) => setName(e.currentTarget.value)}
-        />
-        {ingredients &&
-          [...ingredients, ''].map((ingredient, index) => (
-            <div key={index}>
-              <span>{index + 1}</span>
-              <input
-                type="text"
-                value={ingredient}
-                placeholder="Ingredient"
-                className="ingredient-input"
-                onChange={(e) => handleChangeIngredient(e, index)}
-              />
-            </div>
-          ))}
-        <div className="price-container">
-          <span>$</span>
-          <input
-            type="number"
-            placeholder="Price"
-            className="price-input"
-            value={price}
-            onChange={(e) => setPrice(parseFloat(e.currentTarget.value))}
-          />
-        </div>
-        <input
-          type="text"
-          placeholder="Image URL"
-          className="image-input"
-          value={image}
-          onChange={(e) => setImage(e.currentTarget.value)}
-        />
-        <button type="button" className="submit" onClick={handleSavePizza}>
-          Add Pizza
-        </button>
-      </form>
+      <div className='content'>
+        {choosenComponent}
+      </div>
     </AdminStyled>
   );
 };
