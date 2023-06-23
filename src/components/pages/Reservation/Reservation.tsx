@@ -13,14 +13,17 @@ const Reservation: React.FC = () => {
       if(tel && surname && date) {
         const response = await axios.post(
           'http://localhost:3001/admin/add-reservation',
-          { date, tel, surname },
+          { reservation_date: date, phone_number: tel, lastname: surname },
         );
         setMessage(response.data.message);
+        setDate('');
+        setSurname('');
+        setTel('');
       } else {
         setMessage('Please fill all the fields');
       }
     },
-    []
+    [date, tel, surname]
   );
 
   return (
