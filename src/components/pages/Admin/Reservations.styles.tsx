@@ -17,7 +17,7 @@ const ReservationsStyled = styled.div`
     border-radius: 5px;
     border: none;
     margin: 0 15px;
-    height: 220px;
+    height: 250px;
     width: 250px;
     margin: 50px;
 
