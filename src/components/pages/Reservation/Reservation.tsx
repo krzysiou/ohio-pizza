@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { ReservationStyled } from './Reservation.styles';
-import axios from 'axios';
 
 const Reservation: React.FC = () => {
   const [date, setDate] = useState<string>('');
@@ -37,7 +37,7 @@ const Reservation: React.FC = () => {
             </div>
             <div className='input-bundle'>
               <p>Tel</p>
-              <input type="password" value={tel} className='password' onChange={(event) => setTel(event.currentTarget.value)} />
+              <input type="text" value={tel} className='password' onChange={(event) => setTel(event.currentTarget.value)} />
             </div>
             <div className='input-bundle'>
               <p>Date</p>
