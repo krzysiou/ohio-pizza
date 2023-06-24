@@ -37,7 +37,7 @@ const EditPizza: React.FC<EditPizzaProps> = ({ auth }) => {
     if (res.status === 200) {
       window.location.reload();
     }
-  }, [name, price, ingredients]);
+  }, [name, price, ingredients, image]);
 
   const handleDelete = useCallback(
     async (id: number) => {
