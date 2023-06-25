@@ -23,7 +23,8 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "npx jest"
   },
   "eslintConfig": {
     "extends": [
